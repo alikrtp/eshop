@@ -24,9 +24,17 @@ Route::get('/', function () {
 //***********************************************************************
 //ADMIN routes
 
-Route::get('/admin','Admin\HomeController@index');
+Route::get('/admin','Admin\HomeController@index')->name('admin');
 
 
+
+//-----------------------------------------------------------------------------
+//***********************************************************************
+//LOGIN routes
+
+Route::get('/admin/login','HomeController@login')->name('admin_login');
+Route::post('/admin/login','HomeController@logincheck')->name('admin_logincheck');
+Route::get('/admin/login','HomeController@logout')->name('admin_logout');
 
 //-----------------------------------------------------------------------------
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
