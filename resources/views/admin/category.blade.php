@@ -31,6 +31,7 @@
       <div class="card">
         <div class="card-header">
           <h3 class="card-title">Category </h3>
+          <h3 class="card-title"><a href="{{route('admin_category_add')}}"> Yeni Kategori ekle</a></h3>
 
           <div class="card-tools">
             <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -44,14 +45,16 @@
 
         <!-- /.card-header -->
         <div class="card-body">
+       
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
-                    <th>Rendering engine</th>
-                    <th>Browser</th>
-                    <th>Platform(s)</th>
-                    <th>Engine version</th>
-                    <th>CSS grade</th>
+                    <th>Id</th>
+                    <th>Parent Id</th>
+                    <th>Title</th>
+                    <th>Status</th>
+                    <th>Düzenle</th>
+                    <th> Sil</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -61,8 +64,9 @@
                     <td>{{$rs->parentid}}</td>
 
                     <td>{{$rs->title}}</td>
-                    <td> {{$rs->keyword}}</td>
-                    <td>{{$rs->status}}</td>
+                    <td> {{$rs->status}}</td>
+                    <td>Edit</td>
+                    <td>Delete</td>
                   </tr>
                   @endforeach
                   </tbody>
