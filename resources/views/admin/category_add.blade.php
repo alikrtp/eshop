@@ -17,7 +17,7 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Blank Page</li>
+              <li class="breadcrumb-item active">Add Category</li>
             </ol>
           </div>
         </div>
@@ -29,27 +29,71 @@
 
       <!-- Default box -->
       <div class="card">
-        <div class="card-header">
-          <h3 class="card-title">Title</h3>
 
-          <div class="card-tools">
-            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-              <i class="fas fa-minus"></i>
-            </button>
-            <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-              <i class="fas fa-times"></i>
-            </button>
-          </div>
-        </div>
-        <div class="card-body">
-          Start creating your amazing application!
-        </div>
-        <!-- /.card-body -->
-        <div class="card-footer">
-          Footer
-        </div>
-        <!-- /.card-footer-->
-      </div>
+
+
+
+         <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">Add Category</h3>
+              </div>
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form  name="" action="" method="post" >
+                <div class="card-body">
+                  <div class="form-group">
+                    <label >İd</label>
+                    <input type="email" class="form-control" name="id" id="exampleInputEmail1" placeholder="Enter email">
+                  </div>
+
+
+
+                  <div class="form-group">
+
+
+                    <label >Parent id</label>
+                    <select class="form-control select2" style="witdh:100%;">
+                    <option value="0 " selected="selected"> Ana Kategori</option>
+                    @foreach($datalist as $rs)
+                    <option value="{{$rs->id}}">{{$rs->title}}</option>
+                    @endforeach
+
+                    </select>
+
+                  </div>
+
+                  <div class="form-group">
+                    <label >Title</label>
+                    <input type="email" class="form-control" name="title" id="exampleInputEmail1" placeholder="Title">
+                  </div>
+
+                  <div class="form-group">
+                    <label >keywords</label>
+                    <input type="text" class="form-control" name="keywords" id="exampleInputPassword1" placeholder="Password">
+                  </div>
+
+                    <div class="form-group">
+                    <label >status</label>
+                    <select class="form-control select2" style="witdh:100%;">
+                    <option selected="selected"> Aktif</option>
+                    <option>Pasif</option>
+                    </selected>
+
+                  </div>
+
+
+
+                </div>
+                <!-- /.card-body -->
+
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </form>
+            </div>
+
+
+
       <!-- /.card -->
 
     </section>

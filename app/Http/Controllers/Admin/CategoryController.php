@@ -15,7 +15,8 @@ class CategoryController extends Controller
     public function index()
     {
 
-        $datalist=DB::select('select * from categories');
+        //$datalist=DB::select('select * from categories');
+        $datalist= DB::table('categories')->get();
 
 
 
@@ -29,7 +30,14 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+
+    }
+
+    public function add()
+    {
+        //return "add";
+        $datalist= DB::table('categories')->get()->where('parentid', 0);
+        return view('admin.category_add',['datalist'=>$datalist]);
     }
 
     /**
@@ -40,7 +48,7 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return "store";
     }
 
     /**
@@ -51,8 +59,8 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        //
-    }
+        return "show";
+     }
 
     /**
      * Show the form for editing the specified resource.
