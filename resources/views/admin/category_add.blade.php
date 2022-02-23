@@ -38,13 +38,13 @@
                 <h3 class="card-title">Add Category</h3>
               </div>
               <!-- /.card-header -->
+
               <!-- form start -->
-              <form  name="" action="" method="post" >
+              <form  name="category" action="{{route('admin_category_create')}}" method="post" >
+                  @csrf
                 <div class="card-body">
-                  <div class="form-group">
-                    <label >İd</label>
-                    <input type="email" class="form-control" name="id" id="exampleInputEmail1" placeholder="Enter email">
-                  </div>
+
+
 
 
 
@@ -52,7 +52,7 @@
 
 
                     <label >Parent id</label>
-                    <select class="form-control select2" style="witdh:100%;">
+                    <select name="parentid" class="form-control select2" style="witdh:100%;">
                     <option value="0 " selected="selected"> Ana Kategori</option>
                     @foreach($datalist as $rs)
                     <option value="{{$rs->id}}">{{$rs->title}}</option>
@@ -64,20 +64,29 @@
 
                   <div class="form-group">
                     <label >Title</label>
-                    <input type="email" class="form-control" name="title" id="exampleInputEmail1" placeholder="Title">
+                    <input type="text" class="form-control" name="title" id="exampleInputEmail1" placeholder="Title">
                   </div>
 
                   <div class="form-group">
-                    <label >keywords</label>
-                    <input type="text" class="form-control" name="keywords" id="exampleInputPassword1" placeholder="Password">
+                    <label >keyword</label>
+                    <input type="text" class="form-control" name="keywords" id="exampleInputPassword1" placeholder="keyword">
+                  </div>
+
+                  <div class="form-group">
+                    <label >description</label>
+                    <input type="text" class="form-control" name="description" id="exampleInputPassword1" placeholder="description">
+                  </div>
+                  <div class="form-group">
+                    <label >slug</label>
+                    <input type="text" class="form-control" name="slug" id="exampleInputPassword1" placeholder="slug">
                   </div>
 
                     <div class="form-group">
                     <label >status</label>
-                    <select class="form-control select2" style="witdh:100%;">
+                    <select name="status" class="form-control select2" style="witdh:100%;">
                     <option selected="selected"> Aktif</option>
                     <option>Pasif</option>
-                    </selected>
+                    </select>
 
                   </div>
 
@@ -85,10 +94,12 @@
 
                 </div>
                 <!-- /.card-body -->
-
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">Submit</button>
+                  <button type="submit" class="btn btn-primary">Kategori Ekle</button>
                 </div>
+
+
+
               </form>
             </div>
 
