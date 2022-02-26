@@ -33,8 +33,9 @@ Route::get('/','Admin\HomeController@index')->name('admin');
 Route::get('category','Admin\CategoryController@index')->name('admin_category');
 Route::get('category/add','Admin\CategoryController@add')->name('admin_category_add');
 Route::post('category/create','Admin\CategoryController@create')->name('admin_category_create');
-Route::get('category/update','Admin\CategoryController@update')->name('admin_category_update');
-Route::get('category/delete','Admin\CategoryController@delete')->name('admin_category_delete');
+Route::get('category/edit/{id}','Admin\CategoryController@edit')->name('admin_category_edit');
+Route::post('category/update/{id}','Admin\CategoryController@update')->name('admin_category_update');
+Route::get('category/delete/{id}','Admin\CategoryController@destroy')->name('admin_category_delete');
 Route::get('category/show','Admin\CategoryController@show')->name('admin_category_show');
 });
 

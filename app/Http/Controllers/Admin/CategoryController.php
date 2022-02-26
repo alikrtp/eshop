@@ -24,12 +24,23 @@ class CategoryController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * insert
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
+       // return "deneme bir iki.....";
+       echo $name=$request->input('title');
+       DB::table('categories')->insert([
+           'parentid'=>$request->input('parentid'),
+           'title'=>$request->input('title'),
+           'keyword'=>$request->input('keyword'),
+           'description'=>$request->input('description'),
+           'slug'=>$request->input('slug'),
+           'status'=>$request->input('status')
+       ] );
+       return redirect()->route('admin_category');
 
     }
 
@@ -65,13 +76,20 @@ class CategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Category $category
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Category $category,$id)
     {
-        //
+
+           $data=Category::find($id);
+           $datalist=DB::table('categories')->get()->where('parentid',0);
+           return view('admin.category_edit',['data'=>$data,'datalist'=>$datalist]);
+
     }
+
+
+
 
     /**
      * Update the specified resource in storage.
@@ -82,7 +100,8 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+
     }
 
     /**
@@ -93,6 +112,7 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        DB::table('categories')->where('id','=', $id)->delete();
+        return redirect()->route('admin_category');
     }
 }
