@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 
-@section('title','Blank Page')
+@section('title','Product Edit Page')
 
 @section('content')
 
@@ -12,12 +12,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Blank Page</h1>
+            <h1>Product Edit Page</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Add Category</li>
+              <li class="breadcrumb-item active">Edit Product</li>
             </ol>
           </div>
         </div>
@@ -35,12 +35,12 @@
 
          <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Add Category</h3>
+                <h3 class="card-title">Edit Product</h3>
               </div>
               <!-- /.card-header -->
 
               <!-- form start -->
-              <form  name="category" action="{{route('admin_category_update',['id'=>$data->id])}}" method="post" >
+              <form  name="category" action="{{route('admin_product_update',['id'=>$data->id])}}" method="post" >
                   @csrf
                 <div class="card-body">
 
@@ -51,11 +51,11 @@
                   <div class="form-group">
 
 
-                    <label >Parent id</label>
-                    <select name="parentid" class="form-control select2" style="witdh:100%;">
-                    <option value="0 " selected="selected"> Ana Kategori</option>
+                    <label >Parent</label>
+                    <select name="category_id" class="form-control select2" style="witdh:100%;">
+
                     @foreach($datalist as $rs)
-                    <option value="{{$rs->id}}" @if ($rs->id==$data->parentid) selected="selected" @endif>{{$rs->title}}</option>
+                    <option value="{{$rs->id}}" @if ($rs->id==$data->category_id) selected="selected" @endif>{{$rs->title}}</option>
                     @endforeach
 
                     </select>
@@ -69,12 +69,33 @@
 
                   <div class="form-group">
                     <label >keyword</label>
-                    <input type="text" class="form-control" value="{{$data->keyword}}" name="keyword"  placeholder="keyword">
+                    <input type="text" class="form-control" value="{{$data->keyword}}" name="keywords"  placeholder="keyword">
                   </div>
 
                   <div class="form-group">
                     <label >description</label>
                     <input type="text" class="form-control" value="{{$data->description}}" name="description"  placeholder="description">
+                  </div>
+
+                  <div class="form-group">
+                    <label >price</label>
+                    <input type="number" class="form-control"  name="price" value="{{$data->price}}" placeholder="price">
+                  </div>
+                  <div class="form-group">
+                    <label >quantity</label>
+                    <input type="number" class="form-control"  name="quantity" value="{{$data->quantity}}" placeholder="quantity">
+                  </div>
+                  <div class="form-group">
+                    <label >minquantity</label>
+                    <input type="text" class="form-control" name="minquantity" value="{{$data->minquantity}}"  placeholder="minquantity">
+                  </div>
+                  <div class="form-group">
+                    <label >tax</label>
+                    <input type="text" class="form-control" name="tax" value="{{$data->tax}}" placeholder="tax">
+                  </div>
+                  <div class="form-group">
+                    <label >detail</label>
+                    <input type="text" class="form-control" value="{{$data->detail}}" name="detail"  placeholder="detail">
                   </div>
                   <div class="form-group">
                     <label >slug</label>
@@ -83,7 +104,7 @@
 
                     <div class="form-group">
                     <label >status</label>
-                    <select name="status" class="form-control select2" style="witdh:100%;">
+                    <select name="status" class="form-control select2" value="{{$data->status}}" style="witdh:100%;">
                     <option selected="selected"> Aktif</option>
                     <option>Pasif</option>
                     </select>
@@ -95,7 +116,7 @@
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">Kategori Ekle</button>
+                  <button type="submit" class="btn btn-primary">Update Product</button>
                 </div>
 
 

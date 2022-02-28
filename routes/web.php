@@ -25,7 +25,7 @@ Route::get('/', function () {
 //ADMIN routes
 
 
-
+//Category routes
 Route::middleware('auth')->prefix('admin')->group( function () {
 
 Route::get('/','Admin\HomeController@index')->name('admin');
@@ -37,6 +37,18 @@ Route::get('category/edit/{id}','Admin\CategoryController@edit')->name('admin_ca
 Route::post('category/update/{id}','Admin\CategoryController@update')->name('admin_category_update');
 Route::get('category/delete/{id}','Admin\CategoryController@destroy')->name('admin_category_delete');
 Route::get('category/show','Admin\CategoryController@show')->name('admin_category_show');
+
+Route::prefix('product')->group( function () {
+
+    Route::get('/','Admin\ProductController@index')->name('admin_product');
+    Route::get('create','Admin\ProductController@create')->name('admin_product_add');
+    Route::post('store','Admin\ProductController@store')->name('admin_product_store');
+    Route::get('edit/{id}','Admin\ProductController@edit')->name('admin_product_edit');
+    Route::post('update/{id}','Admin\ProductController@update')->name('admin_product_update');
+    Route::get('delete/{id}','Admin\ProductController@destroy')->name('admin_product_delete');
+    Route::get('show','Admin\ProductController@show')->name('admin_product_show');
+    });
+
 });
 
 

@@ -69,7 +69,7 @@
 
                   <div class="form-group">
                     <label >keyword</label>
-                    <input type="text" class="form-control" name="keywords" id="exampleInputPassword1" placeholder="keyword">
+                    <input type="text" class="form-control" name="keyword" id="exampleInputPassword1" placeholder="keyword">
                   </div>
 
                   <div class="form-group">
