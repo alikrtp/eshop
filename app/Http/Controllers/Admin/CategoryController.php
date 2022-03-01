@@ -101,6 +101,16 @@ class CategoryController extends Controller
     public function update(Request $request, $id)
     {
 
+        DB::table('categories')->where('id','=',$id)->update([
+            'parentid'=>$request->input('parentid'),
+            'title'=>$request->input('title'),
+            'keyword'=>$request->input('keyword'),
+            'description'=>$request->input('description'),
+            'slug'=>$request->input('slug'),
+            'status'=>$request->input('status')
+        ] );
+        return redirect()->route('admin_category');
+
 
     }
 

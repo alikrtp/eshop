@@ -98,6 +98,11 @@
                     <input type="text" class="form-control" value="{{$data->detail}}" name="detail"  placeholder="detail">
                   </div>
                   <div class="form-group">
+                    <label >image</label>
+                    <input type="file" class="form-control" name="image"  placeholder="slug">
+                  </div>
+
+                  <div class="form-group">
                     <label >slug</label>
                     <input type="text" class="form-control" value="{{$data->slug}}" name="slug"  placeholder="slug">
                   </div>

@@ -40,7 +40,7 @@
               <!-- /.card-header -->
 
               <!-- form start -->
-              <form  name="category" action="{{route('admin_product_store')}}" method="post" >
+              <form  name="category" action="{{route('admin_product_store')}}" method="post" enctype="multipart/form-data">
                   @csrf
                 <div class="card-body">
 
@@ -100,6 +100,11 @@
                   <div class="form-group">
                     <label >slug</label>
                     <input type="text" class="form-control" name="slug"  placeholder="slug">
+                  </div>
+
+                  <div class="form-group">
+                    <label >image</label>
+                    <input type="file" class="form-control" name="image"  placeholder="slug">
                   </div>
 
                     <div class="form-group">
