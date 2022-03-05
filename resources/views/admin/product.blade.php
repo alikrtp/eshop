@@ -55,6 +55,7 @@
                     <th>Quantity</th>
                     <th>Price</th>
                     <th>Image</th>
+                    <th>Galery</th>
                     <th>Status</th>
                     <th style="..." colspan="2">Actions</th>
 
@@ -71,9 +72,10 @@
 
                     <td>
                         @if ($rs->image)
-                       <img src={{storage::url( $rs->image)}} height="30" alt="">
+                       <img src="{{Storage::url( $rs->image)}}" height="30" alt="">
                        @endif
                     </td>
+                    <td><a href="{{route('admin_image_add',['product_id'=>$rs->id])}}"><img src="{{asset('assets')}}/admin/images/add-photo.png" height="20" alt=""></a></td>
 
                     <td> {{$rs->status}}</td>
                     <td><a href="{{route('admin_product_edit',['id'=>$rs->id])}}"><ion-icon name="create-outline"></ion-icon>Edit</a></td>

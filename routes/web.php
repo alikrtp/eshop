@@ -48,6 +48,17 @@ Route::prefix('product')->group( function () {
     Route::get('delete/{id}','Admin\ProductController@destroy')->name('admin_product_delete');
     Route::get('show','Admin\ProductController@show')->name('admin_product_show');
     });
+    Route::prefix('image')->group( function () {
+
+
+        Route::get('create/{product_id}','Admin\imageController@create')->name('admin_image_add');
+
+        Route::post('store/{product_id}','Admin\imageController@store')->name('admin_image_store');
+        Route::get('delete/{id}/{product_id}','Admin\imageController@destroy')->name('admin_image_delete');
+        Route::get('show','Admin\imageController@show')->name('admin_image_show');
+        });
+
+
 
 });
 

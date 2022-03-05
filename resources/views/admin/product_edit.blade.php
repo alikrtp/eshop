@@ -40,7 +40,7 @@
               <!-- /.card-header -->
 
               <!-- form start -->
-              <form  name="category" action="{{route('admin_product_update',['id'=>$data->id])}}" method="post" >
+              <form  name="category" action="{{route('admin_product_update',['id'=>$data->id])}}" method="post" enctype="multipart/form-data" >
                   @csrf
                 <div class="card-body">
 
@@ -99,8 +99,14 @@
                   </div>
                   <div class="form-group">
                     <label >image</label>
-                    <input type="file" class="form-control" name="image"  placeholder="slug">
+                    <input type="file" class="form-control" name="{{$data->image}}"  placeholder="image">
+
+                        @if ($rs->image)
+                       <img src="{{Storage::url( $rs->image)}}" height="30" alt="">
+                       @endif
                   </div>
+
+
 
                   <div class="form-group">
                     <label >slug</label>
