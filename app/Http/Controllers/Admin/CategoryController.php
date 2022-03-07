@@ -5,8 +5,28 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\Category;
 class CategoryController extends Controller
 {
+/*
+protected $appends[
+    'getParentsTree'
+];*/
+
+public static function getParentsTree( $category,$title)
+{
+   if ($category->parentid==0){
+       return $title;
+   }
+
+   $parent=Category::find($category->parentid);
+   $title=$parent->title.'>'.$title;
+   return CategoryController::getParentsTree($parent,$title);
+}
+
+
+
+
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +36,8 @@ class CategoryController extends Controller
     {
 
         //$datalist=DB::select('select * from categories');
-        $datalist= DB::table('categories')->get();
+        //$datalist= DB::table('categories')->get();
+            $datalist= Category::with('children')->get();
 
 
 
@@ -47,7 +68,7 @@ class CategoryController extends Controller
     public function add()
     {
         //return "add";
-        $datalist= DB::table('categories')->get()->where('parentid', 0);
+        $datalist= DB::table('categories')->get();//->where('parentid', 0);
         return view('admin.category_add',['datalist'=>$datalist]);
     }
 
@@ -83,7 +104,7 @@ class CategoryController extends Controller
     {
 
            $data=Category::find($id);
-           $datalist=DB::table('categories')->get()->where('parentid',0);
+           $datalist=DB::table('categories')->get();//->where('parentid',0);
            return view('admin.category_edit',['data'=>$data,'datalist'=>$datalist]);
 
     }

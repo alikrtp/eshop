@@ -21,7 +21,8 @@ class ProductController extends Controller
     {
 
         //$datalist= DB::table('products')->get();
-        $datalist= Product::all();
+        //$datalist= Product::all();
+        $datalist= Category::with('children')->get();
 
 
         return view('admin.product',['datalist'=>$datalist]);
@@ -34,7 +35,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $datalist= DB::table('categories')->get()->where('parentid','>',0);
+        //$datalist= DB::table('categories')->get()->where('parentid','>',0);
+        $datalist= Category::with('children')->get();
         return view('admin.product_add',['datalist'=>$datalist]);
     }
 
@@ -129,9 +131,10 @@ class ProductController extends Controller
         $data->minquantity= $request->input('minquantity');
         $data->tax= $request->input('tax');
         $data->detail = $request->input('detail');
+        if($request->file('image')!=null){
         $data->image = Storage::putFile('images',$request->File('image'));
         //Storage::putFile('photos', new File('/path/to/photo'));
-
+            }
         $data->save();
 
         return redirect()->route('admin_product');

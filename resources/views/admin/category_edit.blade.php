@@ -55,7 +55,9 @@
                     <select name="parentid" class="form-control select2" style="witdh:100%;">
                     <option value="0 " selected="selected"> Ana Kategori</option>
                     @foreach($datalist as $rs)
-                    <option value="{{$rs->id}}" @if ($rs->id==$data->parentid) selected="selected" @endif>{{$rs->title}}</option>
+                    <option value="{{$rs->id}}" @if ($rs->id==$data->parentid) selected="selected" @endif>
+                    {{\App\Http\Controllers\Admin\CategoryController::getParentsTree($rs,$rs->title)}}
+                    </option>
                     @endforeach
 
                     </select>
