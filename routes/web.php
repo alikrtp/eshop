@@ -38,6 +38,8 @@ Route::post('category/update/{id}','Admin\CategoryController@update')->name('adm
 Route::get('category/delete/{id}','Admin\CategoryController@destroy')->name('admin_category_delete');
 Route::get('category/show','Admin\CategoryController@show')->name('admin_category_show');
 
+
+#Product Routes
 Route::prefix('product')->group( function () {
 
     Route::get('/','Admin\ProductController@index')->name('admin_product');
@@ -48,6 +50,8 @@ Route::prefix('product')->group( function () {
     Route::get('delete/{id}','Admin\ProductController@destroy')->name('admin_product_delete');
     Route::get('show','Admin\ProductController@show')->name('admin_product_show');
     });
+
+#Image Routes
     Route::prefix('image')->group( function () {
 
 
@@ -57,6 +61,19 @@ Route::prefix('product')->group( function () {
         Route::get('delete/{id}/{product_id}','Admin\imageController@destroy')->name('admin_image_delete');
         Route::get('show','Admin\imageController@show')->name('admin_image_show');
         });
+
+        #setting Routes
+
+
+
+        Route::get('setting','Admin\SettingController@index')->name('admin_setting');
+
+        Route::post('setting/update','Admin\SettingController@update')->name('admin_setting_update');
+
+
+
+
+
 
 
 

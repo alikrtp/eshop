@@ -8,10 +8,10 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Category;
 class CategoryController extends Controller
 {
-/*
-protected $appends[
+
+protected $appends=[
     'getParentsTree'
-];*/
+];
 
 public static function getParentsTree( $category,$title)
 {
