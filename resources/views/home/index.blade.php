@@ -1,5 +1,9 @@
 @extends('layouts.home')
+@php
+namespace App\Http\Controllers;
+$setting=HomeController::getsetting();
 
+@endphp
 
 @section('title',$setting->title)
 
@@ -12,9 +16,7 @@
 
 @section('content')
 
-<!-- Topbar Start -->
-@include('home.partial._topbar')
-<!-- topbar End -->
+
    <!-- Navbar Start -->
 
      @include('home.partial._navbar')
@@ -45,9 +47,7 @@
 
     <!-- Vendor End -->
 
-<!-- Footer Start -->
-@include('home.partial._footer')
-<!-- Footer End -->
+
 
 
 

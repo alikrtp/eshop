@@ -10,8 +10,15 @@ class HomeController extends Controller
 {
  public function index(){
        $setting=Setting::first();
-     return view('home.index',['setting'=>$setting]);
+     return view('home.index');//,['setting'=>$setting]
      }
+
+     public static function getsetting(){
+
+      return  Setting::first();
+      }
+
+
 
 public function login(){
         return view('admin.login');

@@ -101,7 +101,7 @@ class SettingController extends Controller
         $data->facebook= $request->input('facebook');
         $data->instagram= $request->input('instagram');
         $data->twitter = $request->input('twitter');
-        $data->youtube= $request->input('yputube');
+        $data->youtube= $request->input('youtube');
         $data->aboutus= $request->input('aboutus');
         $data->contact= $request->input('contact');
         $data->references= $request->input('references');

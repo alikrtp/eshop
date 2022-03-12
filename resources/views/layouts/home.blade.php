@@ -1,3 +1,10 @@
+@php
+namespace App\Http\Controllers;
+$setting=HomeController::getsetting();
+
+@endphp
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,8 +34,16 @@
 </head>
 
 <body>
+<!-- Topbar Start -->
+@include('home.partial._topbar')
+<!-- topbar End -->
 
 @yield('content')
+
+<!-- Footer Start -->
+@include('home.partial._footer')
+<!-- Footer End -->
+
 
 </body>
 </html>
