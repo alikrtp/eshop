@@ -8,8 +8,8 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
      public function index(){
-         $setting=Setting::first();
-     return view('home.index',['setting'=>@setting]);
+
+     return view('admin.index');
      }
 
 

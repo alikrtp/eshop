@@ -3,9 +3,9 @@
 
 <head>
     <meta charset="utf-8">
-    <title>EShopper - @yield('title')</title>
+    <title>EShop - @yield('title')</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="@yield('keywords')" name="keywords">
+    <meta content="@yield('keyword')" name="keywords">
     <meta content= "@yield('description')" name="description">
     <meta content="Afiek Corp." name="author">
 
@@ -28,28 +28,7 @@
 
 <body>
 
-<!-- Topbar Start -->
-    @include('layouts.partial._topbar')
-<!-- topbar End -->
-   <!-- Navbar Start -->
-
-     @include('layouts.partial._navbar')
-
-    <!-- Navbar End -->
-
-<!-- featured Start -->
-@include('layouts.partial._featured')
-<!-- featured End -->
-
-<!-- categories Start -->
-@include('layouts.partial._categories')
-<!-- categories End -->
-
-<!-- offer Start -->
-@include('layouts.partial._offer')
-<!-- offer End -->
-
-
+@yield('content')
 
 </body>
 </html>

@@ -21,7 +21,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Product Edit Page</h1>
+            <h1>Settings Edit Page</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -61,7 +61,7 @@
 
                   <div class="form-group">
                     <label >keyword</label>
-                    <input type="text" class="form-control" value="{{$data->keyword}}" name="keywords"  placeholder="keyword">
+                    <input type="text" class="form-control" value="{{$data->keyword}}" name="keyword"  placeholder="keyword">
                   </div>
 
                   <div class="form-group">

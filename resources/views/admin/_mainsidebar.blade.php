@@ -55,6 +55,15 @@
               </p>
             </a>
         </li>
+        <li class="nav-item">
+            <a href="{{route('admin_setting')}}" class="nav-link">
+               <i class="nav-icon fas fa-angle-left"></i>
+
+              <p>
+               Setting
+              </p>
+            </a>
+        </li>
 
           <li class="nav-item menu-open">
             <a href="{{route('admin_category')}}" class="nav-link active">
