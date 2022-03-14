@@ -59,7 +59,7 @@
 
                   <div class="form-group">
                     <label >image</label>
-                    <input type="file" class="form-control" name="image"  placeholder="slug">
+                    <input type="file" class="form-control" name="image"  placeholder="image">
                   </div>
 
                 </div>

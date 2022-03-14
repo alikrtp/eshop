@@ -18,7 +18,7 @@ class CreateImagesTable extends Migration
             $table->id()->autoIncrement();
             $table->integer('product_id')->nullable();
             $table->string('title',150);
-            $table->string('img',75)->nullable();
+            $table->string('image',75)->nullable();
            $table->timestamps();
         });
     }

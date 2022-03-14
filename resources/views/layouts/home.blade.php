@@ -38,6 +38,12 @@ $setting=HomeController::getsetting();
 @include('home.partial._topbar')
 <!-- topbar End -->
 
+   <!-- Navbar Start -->
+
+   @include('home.partial._navbar')
+
+<!-- Navbar End -->
+
 @yield('content')
 
 <!-- Footer Start -->

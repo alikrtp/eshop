@@ -16,7 +16,10 @@ use Illuminate\Support\Facades\Route;
 //Route::get('/home','HomeController@index');
 Route::get('/home','HomeController@index')->name('home');
 Route::get('/home/{id}/{name}','HomeController@test');
-Route::get('/about','HomeController@about');
+Route::get('/about','HomeControphp artisan migrateller@about')->name('about');
+Route::get('/references','HomeController@references')->name('references');
+Route::get('/contact','HomeController@contact')->name('contact');
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -70,11 +73,12 @@ Route::prefix('product')->group( function () {
 
         Route::post('setting/update','Admin\SettingController@update')->name('admin_setting_update');
 
+});
 
-
-
-
-
+//***********************************************************************
+//ACCOUNT routes
+Route::middleware('auth')->prefix('myaccount')->group( function () {
+    Route::get('/','UserController@index')->name('myprofile');
 
 
 });
@@ -88,7 +92,8 @@ Route::prefix('product')->group( function () {
 
 Route::get('/admin/login','HomeController@login')->name('admin_login');
 Route::post('/admin/logincheck','HomeController@logincheck')->name('admin_logincheck');
-Route::get('/admin/logout','HomeController@logout')->name('admin_logout');
+Route::get('logout','HomeController@logout')->name('logout');
+
 
 //-----------------------------------------------------------------------------
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

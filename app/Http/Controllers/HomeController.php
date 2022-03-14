@@ -10,7 +10,7 @@ class HomeController extends Controller
 {
  public function index(){
        $setting=Setting::first();
-     return view('home.index');//,['setting'=>$setting]
+     return view('home.index',['page'=>'home']);//,['setting'=>$setting]
      }
 
      public static function getsetting(){
@@ -71,7 +71,16 @@ public function test($id,$name){
      }
 
 public function about(){
+
         return view('home.about');
-        }
+}
+public function references(){
+
+    return view('home.references');
+}
+public function contact(){
+
+    return view('home.contact');
+}
 
 }

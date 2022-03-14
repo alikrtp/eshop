@@ -40,7 +40,7 @@
               <!-- /.card-header -->
 
               <!-- form start -->
-              <form  name="category" action="{{route('admin_product_update',['id'=>$data->id])}}" method="post" enctype="multipart/form-data" >
+              <form  name="category" action="{{route('admin_product_store',['id'=>$data->id])}}" method="post" enctype="multipart/form-data" >
                   @csrf
                 <div class="card-body">
 

@@ -7,7 +7,10 @@ $setting=HomeController::getsetting();
 
 @section('title',$setting->title)
 
+@section('slider')
 
+@include('home.partial._slider')
+@endsection
 
 
 
@@ -17,11 +20,7 @@ $setting=HomeController::getsetting();
 @section('content')
 
 
-   <!-- Navbar Start -->
 
-     @include('home.partial._navbar')
-
-    <!-- Navbar End -->
 
 <!-- featured Start -->
 @include('home.partial._featured')

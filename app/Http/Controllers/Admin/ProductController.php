@@ -21,8 +21,8 @@ class ProductController extends Controller
     {
 
         //$datalist= DB::table('products')->get();
-        //$datalist= Product::all();
-        $datalist= Category::with('children')->get();
+        $datalist= Product::all();
+        //$datalist= Category::with('children')->get();
 
 
         return view('admin.product',['datalist'=>$datalist]);
