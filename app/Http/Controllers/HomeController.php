@@ -5,12 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Setting;
-
+use App\Models\Product;
+use App\Models\Message;
 class HomeController extends Controller
 {
  public function index(){
        $setting=Setting::first();
-     return view('home.index',['page'=>'home']);//,['setting'=>$setting]
+       $slider=Product::select('title','image','price')->limit(3)->get();
+
+     return view('home.index',['slider'=>$slider,'page'=>'home']);//,['setting'=>$setting]
      }
 
      public static function getsetting(){
@@ -70,17 +73,39 @@ public function test($id,$name){
     //echo 'id number',$name;
      }
 
-public function about(){
+    public function about(){
 
         return view('home.about');
-}
-public function references(){
+    }
+
+    public function references(){
 
     return view('home.references');
-}
-public function contact(){
+    }
+    public function contact(){
 
     return view('home.contact');
-}
+    }
+
+    public function sendmessage(Request $request){
+
+
+        $data = new Message();
+
+        $data->name = $request->input('name');
+        $data->email = $request->input('email');
+        $data->phone = $request->input('phone');
+        $data->subject = $request->input('subject');
+        $data->message = $request->input('message');
+
+
+        $data->save();
+
+        return redirect()->route('contact');//->with('success','Mesajınız başarı ile kaydedilmiştir. teşekkür ederiz');
 
 }
+
+
+
+
+}//end homecontroller

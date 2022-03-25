@@ -24,6 +24,13 @@ public static function getParentsTree( $category,$title)
    return CategoryController::getParentsTree($parent,$title);
 }
 
+public static function categorylist( )
+{
+
+   return Category::where('parentid','=',0)->with('children')->get();
+}
+
+
 
 
 

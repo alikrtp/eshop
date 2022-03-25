@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\Setting;
+use App\Models\Product;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,12 +18,18 @@ use Illuminate\Support\Facades\Route;
 //Route::get('/home','HomeController@index');
 Route::get('/home','HomeController@index')->name('home');
 Route::get('/home/{id}/{name}','HomeController@test');
-Route::get('/about','HomeControphp artisan migrateller@about')->name('about');
+Route::get('/about','HomeController@about')->name('about');
 Route::get('/references','HomeController@references')->name('references');
 Route::get('/contact','HomeController@contact')->name('contact');
+Route::get('/product/{id}','HomeController@product')->name('product');
+Route::post('/sendmessage','HomeController@sendmessage')->name('sendmessage');
 
 Route::get('/', function () {
-    return view('welcome');
+    $setting=Setting::first();
+       $slider=Product::select('title','image','price')->limit(3)->get();
+
+     return view('home.index',['slider'=>$slider,'page'=>'home']);//,['setting'=>$setting]
+
 });
 
 //***********************************************************************
@@ -64,6 +72,16 @@ Route::prefix('product')->group( function () {
         Route::get('delete/{id}/{product_id}','Admin\imageController@destroy')->name('admin_image_delete');
         Route::get('show','Admin\imageController@show')->name('admin_image_show');
         });
+
+        #admin message Routes
+Route::prefix('message')->group( function () {
+
+    Route::get('/','Admin\MessageController@index')->name('admin_message');
+    Route::get('edit/{id}','Admin\MessageController@edit')->name('admin_message_edit');
+    Route::post('update/{id}','Admin\MessageController@update')->name('admin_message_update');
+    Route::get('delete/{id}','Admin\MessageController@destroy')->name('admin_message_delete');
+    Route::get('show','Admin\MessageController@show')->name('admin_message_show');
+    });
 
         #setting Routes
 

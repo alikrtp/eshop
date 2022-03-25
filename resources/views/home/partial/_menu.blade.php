@@ -27,12 +27,12 @@
 
                         @auth
 
-          <a href="" class="nav-item nav-link">{{Auth::user()->name}}</a>
+          <a href="{{route('myprofile')}}" class="nav-item nav-link">{{Auth::user()->name}}</a>
           <a href="{{route('logout')}}" class="nav-item nav-link">Logout</a>
 
           @endauth
           @guest
-          <a href="" class="nav-item nav-link">Login</a>
+          <a href="{{route('login')}}" class="nav-item nav-link">Login</a>
           @endguest
 
 

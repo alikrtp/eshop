@@ -64,6 +64,15 @@
               </p>
             </a>
         </li>
+        <li class="nav-item">
+            <a href="{{route('admin_message')}}" class="nav-link">
+              <i class="nav-icon fas fa-columns"></i>
+              <p>
+                Contact Message
+              </p>
+            </a>
+          </li>
+
 
           <li class="nav-item menu-open">
             <a href="{{route('admin_category')}}" class="nav-link active">
