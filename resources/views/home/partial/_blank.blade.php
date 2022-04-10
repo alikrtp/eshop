@@ -2,7 +2,7 @@
 @extends('layouts.home')
 
 
-@section('title','User Profile')
+@section('title','blank')
 
 
 @section('content')

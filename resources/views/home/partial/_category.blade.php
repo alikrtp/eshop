@@ -1,6 +1,7 @@
 @php
-namespace App\Http\Controllers\Admin;
-$parentcategory=CategoryController::categorylist();
+
+
+$parentcategory=\App\Http\Controllers\HomeController::categorylist();
 
 @endphp
 
@@ -14,8 +15,10 @@ $parentcategory=CategoryController::categorylist();
                     <div class="navbar-nav w-100 overflow-hidden" style="height: 410px">
                         @foreach($parentcategory as $rs)
                         <div class="nav-item dropdown">
+                        <a href="#" class="nav-link" data-toggle="dropdown">{{$rs->title}} <i class="fa fa-angle-down float-right mt-1"></i></a>
 
                             @if(count($rs->children))
+
                           @include('home.categorytree',['children'=>$rs->children])
 
                             @endif

@@ -23,6 +23,7 @@ Route::get('/references','HomeController@references')->name('references');
 Route::get('/contact','HomeController@contact')->name('contact');
 Route::get('/product/{id}','HomeController@product')->name('product');
 Route::post('/sendmessage','HomeController@sendmessage')->name('sendmessage');
+Route::get('/categoryproduct/{id}','HomeController@categoryproduct')->name('categoryproduct');
 
 Route::get('/', function () {
     $setting=Setting::first();

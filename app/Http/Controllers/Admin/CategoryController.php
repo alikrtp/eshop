@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Category;
+use App\Models\product;
 class CategoryController extends Controller
 {
 
@@ -20,7 +21,7 @@ public static function getParentsTree( $category,$title)
    }
 
    $parent=Category::find($category->parentid);
-   $title=$parent->title.'>'.$title;
+   $title=$parent->title.'-'.$title;
    return CategoryController::getParentsTree($parent,$title);
 }
 
@@ -153,4 +154,9 @@ public static function categorylist( )
         DB::table('categories')->where('id','=', $id)->delete();
         return redirect()->route('admin_category');
     }
+
+
+
+
+
 }

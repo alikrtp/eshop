@@ -58,6 +58,8 @@
                   </tr>
                   </thead>
                   <tbody>
+
+
                   @foreach ( $datalist as $rs)
                   <tr>
                     <td>{{$rs->id}}</td>
